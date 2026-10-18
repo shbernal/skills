@@ -5,7 +5,7 @@ description: Use when searching for jobs on freehire.me with the `freehire` CLI,
 
 # Searching jobs with freehire
 
-`freehire` is a CLI over the [freehire.me](https://freehire.me) job catalogue. `search`, `facets` and `company` work without an account. `job` needs one (`freehire auth login`). Every command takes `--json` for the raw API payload, so pipe it to `jq`.
+`freehire` is a CLI over the [freehire.me](https://freehire.me) job catalogue. `search`, `facets` and `company` work without an account. Every command takes `--json` for the raw API payload, so pipe it to `jq`.
 
 If the command is missing, install it:
 
@@ -50,7 +50,7 @@ freehire --json search "golang" --limit 3 | jq '.[] | {title, company_slug, url,
 freehire company <company-slug>
 ```
 
-Each `--json` search hit already has the full description, the original `url` where the person applies, and the company slug. `freehire job <slug>` shows the same posting but requires a login, so use it only when the person is logged in.
+Each `--json` search hit already has the full description, the original `url` where the person applies, and the company slug.
 
 ## Presenting results
 
