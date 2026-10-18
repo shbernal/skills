@@ -25,6 +25,7 @@ See [docs/preferences.md](docs/preferences.md).
 | Skill | What it does |
 | --- | --- |
 | [freehire-search](skills/freehire-search/SKILL.md) | Search IT jobs on [freehire.me](https://freehire.me) with the `freehire` CLI, no account needed |
+| [himalaya](skills/himalaya/SKILL.md) | Read, search, sort and send email with the [Himalaya](https://github.com/pimalaya/himalaya) CLI |
 
 ## Install
 
