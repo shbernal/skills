@@ -17,6 +17,9 @@ Agent skills by shbernal.
 A skill is a `SKILL.md` file that tells a coding agent how to do one task.
 Each skill here stands alone, so install only the ones you want.
 
+The skills are opinionated: they assume my setup (Arch Linux, [mise](https://mise.jdx.dev) for CLIs).
+See [docs/preferences.md](docs/preferences.md).
+
 ## Skills
 
 | Skill | What it does |

@@ -9,7 +9,7 @@
   - New skills get a row in the README table.
 
 - Key documentation
-  - [docs/metadata-files.md]
+  - [docs/preferences.md]: my setup, which skills target
 
 - Iron Laws
   - Tokens are expensive, state of the art models need minimal guidance, don't repeat yourself, don't babysit, don't be over-specific.
