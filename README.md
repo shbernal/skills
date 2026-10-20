@@ -8,7 +8,7 @@ Agent skills by shbernal.
 
 ---
 
-[Skills](#skills) • [Install](#install)
+[Skills](#skills) • [Install](#install) • [Credits](#credits)
 
 ---
 
@@ -25,6 +25,7 @@ See [docs/preferences.md](docs/preferences.md).
 | Skill | What it does |
 | --- | --- |
 | [freehire-search](skills/freehire-search/SKILL.md) | Search IT jobs on [freehire.me](https://freehire.me) with the `freehire` CLI, no account needed |
+| [grill-me](skills/grill-me/SKILL.md) | Interview you relentlessly about a plan or idea, in rounds of numbered questions with recommended answers |
 | [himalaya](skills/himalaya/SKILL.md) | Read, search, sort and send email with the [Himalaya](https://github.com/pimalaya/himalaya) CLI |
 
 ## Install
@@ -40,6 +41,14 @@ Install all of them:
 ```bash
 npx skills add shbernal/skills
 ```
+
+## Credits
+
+Some skills build on others' work:
+
+| Skill | Inspired by |
+| --- | --- |
+| [grill-me](skills/grill-me/SKILL.md) | Matt Pocock's [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), © Matt Pocock, MIT |
 
 [license]: LICENSE
 [license-badge]: https://img.shields.io/github/license/shbernal/skills?style=for-the-badge&color=7aa2f7
