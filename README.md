@@ -24,6 +24,7 @@ See [docs/preferences.md](docs/preferences.md).
 
 | Skill | What it does |
 | --- | --- |
+| [domain-modeling](skills/domain-modeling/SKILL.md) | Build a project's glossary of domain terms and its architecture decision records (ADRs) while you design |
 | [freehire-search](skills/freehire-search/SKILL.md) | Search IT jobs on [freehire.me](https://freehire.me) with the `freehire` CLI, no account needed |
 | [grill-me](skills/grill-me/SKILL.md) | Interview you relentlessly about a plan or idea, in rounds of numbered questions with recommended answers |
 | [himalaya](skills/himalaya/SKILL.md) | Read, search, sort and send email with the [Himalaya](https://github.com/pimalaya/himalaya) CLI |
@@ -48,6 +49,7 @@ Some skills build on others' work:
 
 | Skill | Inspired by |
 | --- | --- |
+| [domain-modeling](skills/domain-modeling/SKILL.md) | Matt Pocock's [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), © Matt Pocock, MIT |
 | [grill-me](skills/grill-me/SKILL.md) | Matt Pocock's [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), © Matt Pocock, MIT |
 
 [license]: LICENSE
