@@ -5,7 +5,7 @@ description: Use when searching for jobs on freehire.me with the `freehire` CLI,
 
 # Searching jobs with freehire
 
-`freehire` is a CLI over the [freehire.me](https://freehire.me) job catalogue. `search`, `facets` and `company` work without an account. Always pass `--json` and pull the fields you need with `jq`. The plain output is for people and drops fields.
+`freehire` is a CLI over the [freehire.me](https://freehire.me) job catalogue. `search`, `facets`, `job` and `company` work without an account. Always pass `--json` and pull the fields you need with `jq`. The plain output is for people and drops fields.
 
 If the command is missing, install it:
 
@@ -30,13 +30,24 @@ Each facet lists its values with a vacancy count. Filters narrow the counts to t
 ```bash
 freehire --json search "golang" --region eu --remote --seniority senior --limit 10 | jq '.[] | {title, company, location, public_slug}'
 freehire --json search "" --country IT --employment-type contract --exclude-skill python | jq '.[] | {title, company, public_slug}'
+freehire --json search 'title:golang OR title:rust -junior' --remote --facet reality=fresh --limit 5 | jq '.[] | {title, company, summary: .enrichment.summary, public_slug}'
 ```
+
+The query takes operators. Single-quote the whole query when it contains double quotes, or the shell strips them.
+
+- `"product owner"`: every quoted word must match, in any order.
+- `-word` excludes postings that match it.
+- `OR` (uppercase) joins up to 5 alternatives into one merged result. Use it instead of one call per synonym.
+- `title:` at the start of an alternative matches only the title.
+- Plain words are neither AND nor OR. Trailing words are dropped when too few postings match, so quote the words that must all appear.
+- `--semantic` also matches postings that describe the query in other words. Use it for a need described in words (`"keep our payment systems secure"`). Leave it off for a job title or a non-technical role, where it does worse than plain keywords. `warning: semantic search unavailable` on stderr means the results are keyword-only.
 
 - Repeat a filter flag to OR its values.
 - `--facet key=value` reaches any facet without its own flag. Add `_exclude` to the key to filter values out (`--facet company_type_exclude=outstaff`).
 - `--region`, `--country` and `--city` form one OR group. `--region eu --country BR` means Europe or Brazil. To search one country, pass only `--country`.
 - An empty query browses by filters alone.
-- Each hit includes the full description as markdown. Select fields with `jq` and keep `--limit` small when you read descriptions.
+- `--facet reality=fresh` drops stale and evergreen postings.
+- Each hit includes the full description as markdown. Screen with `.enrichment.summary` (sometimes null) and the `.enrichment.requirements` list, and read `description` only for the hits that survive.
 
 Watch stderr. The API ignores unknown filters without failing, and the CLI prints `warning: ignored unknown filter ...`, often with a `did you mean`. Fix the filter and rerun before you quote any count.
 
@@ -45,11 +56,11 @@ Skill tags come from the description text. Treat `--exclude-skill` as a rough fi
 ## 3. Open results
 
 ```bash
-freehire --json search "golang" --limit 3 | jq '.[] | {title, company_slug, url, description}'
+freehire job <public_slug>
 freehire --json company <company-slug> | jq '{name: .company.name, jobs: [.jobs[] | {title, public_slug}]}'
 ```
 
-Each search hit already has the full description, the original `url` where the person applies, and the company slug.
+Each search hit already has the full description, the original `url` where the person applies, and the company slug. Use `job` to read one posting as plain text. It also prints a `Possibly inactive` block when a posting looks like nobody is working it. Relay the checks that fired and the ones not observed, never call the job fake.
 
 ## Presenting results
 
