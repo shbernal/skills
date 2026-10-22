@@ -13,6 +13,25 @@ If the command is missing, install it:
 mise use -g github:pimalaya/himalaya
 ```
 
+## Account setup
+
+`himalaya account list` shows the configured accounts. Without one, the user runs the interactive `himalaya configure`, or you write `~/.config/himalaya/config.toml`. For Gmail, with an app password:
+
+```toml
+[accounts.gmail]
+default = true
+email = "user@gmail.com"
+imap.server = "imaps://imap.gmail.com:993"
+imap.sasl.plain.authcid = "user@gmail.com"
+imap.sasl.plain.passwd.command = ["secret-tool", "lookup", "account", "gmail"]
+smtp.server = "smtps://smtp.gmail.com:465"
+smtp.sasl.plain.authcid = "user@gmail.com"
+smtp.sasl.plain.passwd.command = ["secret-tool", "lookup", "account", "gmail"]
+mailbox.alias.sent = "[Gmail]/Sent Mail"
+```
+
+The password stays out of the file: the user stores it with `secret-tool store --label=himalaya account gmail`. A keyring lookup needs an unlocked desktop session, so a service started before login can't read it. Finish with `himalaya account check`.
+
 ## Rules
 
 - Confirm with the user before sending, replying, forwarding, moving, deleting or changing flags. Show the recipients, subject, body and attachments first.
