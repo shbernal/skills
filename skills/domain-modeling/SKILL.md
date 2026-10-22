@@ -10,7 +10,7 @@ The model lives in two places, both created lazily, only when there is something
 - `GLOSSARY.md` at the repo root: the project's terms, in the format in [GLOSSARY-FORMAT.md](GLOSSARY-FORMAT.md).
 - `docs/adr/`: decisions, in the format in [ADR-FORMAT.md](ADR-FORMAT.md). If the repo already keeps decisions elsewhere, use that.
 
-When you create `GLOSSARY.md`, make sure the repo's `AGENTS.md` or `CLAUDE.md` tells agents to use its terms and avoid the words under `_Avoid_`; otherwise the glossary gets written and never read.
+When you create `GLOSSARY.md`, make sure the repo's `AGENTS.md` tells agents to use its terms and avoid the words under `_Avoid_`; otherwise the glossary gets written and never read.
 
 ## During the session
 
