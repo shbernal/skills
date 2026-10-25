@@ -5,7 +5,7 @@ description: Use when searching for jobs on freehire.me with the `freehire` CLI,
 
 # Searching jobs with freehire
 
-`freehire` is a CLI over the [freehire.me](https://freehire.me) job catalogue. `search`, `facets`, `job` and `company` work without an account. Always pass `--json` and pull the fields you need with `jq`. The plain output is for people and drops fields.
+`freehire` is a CLI over the [freehire.me](https://freehire.me) job catalogue. `search`, `facets`, `job` and `company` work without an account. Always pass `--json` and pull the fields you need with `jq -c`, since the JSON comes pretty-printed. The plain output is for people and drops fields.
 
 If the command is missing, install it:
 
@@ -18,9 +18,9 @@ mise use -g github:strelov1/freehire-cli
 Never guess a filter value. Read the live vocabulary first:
 
 ```bash
-freehire --json facets | jq '.facets | keys'
-freehire --json facets | jq '.facets.seniority'
-freehire --json facets --category backend | jq '.facets.skills | to_entries | sort_by(-.value) | .[:20]'
+freehire --json facets | jq -c '.facets | keys'
+freehire --json facets | jq -c '.facets.seniority'
+freehire --json facets --category backend | jq -c '.facets.skills | to_entries | sort_by(-.value) | .[:20]'
 ```
 
 Each facet lists its values with a vacancy count. Filters narrow the counts to that slice. Skills are lowercase slugs (`go`, `react`, `kubernetes`).
@@ -28,9 +28,9 @@ Each facet lists its values with a vacancy count. Filters narrow the counts to t
 ## 2. Search
 
 ```bash
-freehire --json search "golang" --region eu --remote --seniority senior --limit 10 | jq '.[] | {title, company, location, public_slug}'
-freehire --json search "" --country IT --employment-type contract --exclude-skill python | jq '.[] | {title, company, public_slug}'
-freehire --json search 'title:golang OR title:rust -junior' --remote --facet reality=fresh --limit 5 | jq '.[] | {title, company, summary: .enrichment.summary, public_slug}'
+freehire --json search "golang" --region eu --remote --seniority senior --limit 10 | jq -c '.[] | {title, company, location, public_slug}'
+freehire --json search "" --country IT --employment-type contract --exclude-skill python | jq -c '.[] | {title, company, public_slug}'
+freehire --json search 'title:golang OR title:rust -junior' --remote --facet reality=fresh --limit 5 | jq -c '.[] | {title, company, summary: .enrichment.summary, public_slug}'
 ```
 
 The query takes operators. Single-quote the whole query when it contains double quotes, or the shell strips them.
@@ -57,7 +57,7 @@ Skill tags come from the description text. Treat `--exclude-skill` as a rough fi
 
 ```bash
 freehire job <public_slug>
-freehire --json company <company-slug> | jq '{name: .company.name, jobs: [.jobs[] | {title, public_slug}]}'
+freehire --json company <company-slug> | jq -c '{name: .company.name, jobs: [.jobs[] | {title, public_slug}]}'
 ```
 
 Each search hit already has the full description, the original `url` where the person applies, and the company slug. Use `job` to read one posting as plain text. It also prints a `Possibly inactive` block when a posting looks like nobody is working it. Relay the checks that fired and the ones not observed, never call the job fake.

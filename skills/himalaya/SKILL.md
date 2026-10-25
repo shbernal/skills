@@ -42,10 +42,10 @@ The password stays out of the file: the user stores it with `secret-tool store -
 `--json` is global and goes before the subcommand. Reading leaves the seen flag alone unless you pass `--seen`.
 
 ```bash
-himalaya mailbox list
-himalaya --json envelope list -m inbox -s 20 | jq '.envelopes[] | {id, from, subject, date}'
+himalaya --json mailbox list
+himalaya --json envelope list -m inbox -s 20 | jq -c '.envelopes[] | {id, from, subject, date}'
 himalaya message read 42
-himalaya attachment list 42
+himalaya --json attachment list 42
 himalaya attachment download --dir "$PWD/downloads" 42 2
 ```
 
