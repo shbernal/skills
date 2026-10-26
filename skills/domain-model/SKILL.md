@@ -1,9 +1,11 @@
 ---
-name: domain-modeling
+name: domain-model
 description: Build and sharpen a project's domain model, its glossary of terms and its architectural decisions. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording an ADR.
 ---
 
 Actively build and sharpen the project's domain model as you design: challenge terms, invent edge-case scenarios, and write the glossary and decisions down the moment they settle. Merely *reading* `GLOSSARY.md` for vocabulary is not this skill; this is for *changing* the model.
+
+Only when the user invokes the skill as `/domain-model <command>`, follow `commands/<command>.md` instead of the session behaviour below. Otherwise never read `commands/`.
 
 The model lives in two places, both created lazily, only when there is something to write:
 
