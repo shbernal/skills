@@ -28,6 +28,7 @@ See [docs/preferences.md](docs/preferences.md).
 | [freehire-search](skills/freehire-search/SKILL.md) | Search IT jobs on [freehire.me](https://freehire.me) with the `freehire` CLI, no account needed |
 | [grill-me](skills/grill-me/SKILL.md) | Interview you relentlessly about a plan or idea, in rounds of numbered questions with recommended answers |
 | [himalaya](skills/himalaya/SKILL.md) | Read, search, sort and send email with the [Himalaya](https://github.com/pimalaya/himalaya) CLI |
+| [slopit](skills/slopit/SKILL.md) | Run a free blog on [SlopIt](https://slopit.io) through its REST API |
 | [yutu](skills/yutu/SKILL.md) | Manage a YouTube channel and read YouTube data with the [yutu](https://github.com/eat-pray-ai/yutu) CLI |
 
 ## Install
@@ -52,6 +53,7 @@ Some skills build on others' work:
 | --- | --- |
 | [domain-model](skills/domain-model/SKILL.md) | Matt Pocock's [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), © Matt Pocock, MIT |
 | [grill-me](skills/grill-me/SKILL.md) | Matt Pocock's [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), © Matt Pocock, MIT |
+| [slopit](skills/slopit/SKILL.md) | Run a free blog on [SlopIt](https://slopit.io) through its REST API |
 | [yutu](skills/yutu/SKILL.md) | eat-pray-ai's [youtube](https://github.com/eat-pray-ai/yutu/tree/main/skills/youtube) skill, © eat-pray-ai & OpenWaygate, Apache-2.0 |
 
 [license]: LICENSE
