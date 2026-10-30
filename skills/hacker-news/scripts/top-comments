@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Usage: top-comments ID [COUNT]
+# Prints a story's or comment's top-level comments in site rank order.
+set -euo pipefail
+
+id=${1:?usage: top-comments ID [COUNT]}
+count=${2:-20}
+
+kids=$(curl -fsS "https://hacker-news.firebaseio.com/v0/item/$id.json" | jq -c '.kids // []')
+
+curl -fsS "https://hn.algolia.com/api/v1/items/$id" | jq -r --argjson kids "$kids" --argjson count "$count" '
+  def plain:
+    gsub("<a href=\"(?<url>[^\"]+)\"[^>]*>[^<]*</a>"; .url)
+    | gsub("<p>"; "\n") | gsub("<[^>]+>"; "")
+    | gsub("&#x2F;"; "/") | gsub("&#x27;"; [39] | implode) | gsub("&quot;|&#34;"; "\"")
+    | gsub("&gt;"; ">") | gsub("&lt;"; "<") | gsub("&amp;"; "&");
+
+  (.children | map({key: (.id | tostring), value: .}) | from_entries) as $comments
+  | $kids[:$count][]
+  | $comments[tostring] // empty
+  | select(.text)
+  | "#\(.id) @\(.author), \(.created_at[:10]), \(.children | length) direct replies\n\(.text | plain | .[:800])\n"
+'

@@ -27,6 +27,7 @@ See [docs/preferences.md](docs/preferences.md).
 | [domain-model](skills/domain-model/SKILL.md) | Build a project's glossary of domain terms and its architecture decision records (ADRs) while you design |
 | [freehire-search](skills/freehire-search/SKILL.md) | Search IT jobs on [freehire.me](https://freehire.me) with the `freehire` CLI, no account needed |
 | [grill-me](skills/grill-me/SKILL.md) | Interview you relentlessly about a plan or idea, in rounds of numbered questions with recommended answers |
+| [hacker-news](skills/hacker-news/SKILL.md) | Search and read [Hacker News](https://news.ycombinator.com) with the [hn](https://github.com/voska/hn-cli) CLI, and know which API answers what |
 | [himalaya](skills/himalaya/SKILL.md) | Read, search, sort and send email with the [Himalaya](https://github.com/pimalaya/himalaya) CLI |
 | [slopit](skills/slopit/SKILL.md) | Run a free blog on [SlopIt](https://slopit.io) through its REST API |
 | [yutu](skills/yutu/SKILL.md) | Manage a YouTube channel and read YouTube data with the [yutu](https://github.com/eat-pray-ai/yutu) CLI |
