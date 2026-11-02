@@ -3,8 +3,16 @@
 Personal companion to `GLOSSARY.md`: the terms the user has struggled with, explained in plain language. Create it on the first explanation, and keep it out of git:
 
 ```sh
-echo GLOSSARY-CHEATSHEET.md >> .git/info/exclude
+echo GLOSSARY-CHEATSHEET.md >> "$(git rev-parse --git-common-dir)/info/exclude"
 ```
+
+The exclude is shared by all worktrees, but the file itself is not: a linked worktree starts without it. Don't copy it there, link it, so every worktree reads and writes the one copy in the main worktree:
+
+```sh
+ln -s "$(git rev-parse --path-format=absolute --git-common-dir)/../GLOSSARY-CHEATSHEET.md" GLOSSARY-CHEATSHEET.md
+```
+
+Do this when the file is missing and `git rev-parse --git-dir` differs from `git rev-parse --git-common-dir`.
 
 ```md
 # {Project name} cheatsheet
