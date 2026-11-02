@@ -24,7 +24,7 @@ See [docs/preferences.md](docs/preferences.md).
 
 | Skill | What it does |
 | --- | --- |
-| [domain-model](skills/domain-model/SKILL.md) | Build a project's glossary of domain terms and its architecture decision records (ADRs) while you design |
+| [domain-model](skills/domain-model/SKILL.md) | Build a project's glossary of domain terms and its architecture decision records (ADRs) while you design, plus a private plain-language cheatsheet for the terms you struggle with |
 | [freehire-search](skills/freehire-search/SKILL.md) | Search IT jobs on [freehire.me](https://freehire.me) with the `freehire` CLI, no account needed |
 | [grill-me](skills/grill-me/SKILL.md) | Interview you relentlessly about a plan or idea, in rounds of numbered questions with recommended answers |
 | [hacker-news](skills/hacker-news/SKILL.md) | Search and read [Hacker News](https://news.ycombinator.com) with the [hn](https://github.com/voska/hn-cli) CLI, and know which API answers what |

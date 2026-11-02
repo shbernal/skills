@@ -7,5 +7,6 @@ Compare `GLOSSARY.md` and the ADRs with code, docs and UI copy. Report, grouped 
 - Glossary terms that no longer appear anywhere.
 - Definitions the code contradicts.
 - ADRs the code has drifted from.
+- Cheatsheet entries whose glossary term was renamed or removed, if `GLOSSARY-CHEATSHEET.md` exists.
 
 Report only. Change the glossary or ADRs once the user agrees; suggest code renames, never apply them.

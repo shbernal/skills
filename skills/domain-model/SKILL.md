@@ -12,6 +12,8 @@ The model lives in two places, both created lazily, only when there is something
 - `GLOSSARY.md` at the repo root: the project's terms, in the format in [GLOSSARY-FORMAT.md](GLOSSARY-FORMAT.md).
 - `docs/adr/`: decisions, in the format in [ADR-FORMAT.md](ADR-FORMAT.md). If the repo already keeps decisions elsewhere, use that.
 
+A third file is the user's, not the project's: `GLOSSARY-CHEATSHEET.md` at the repo root, in the format in [CHEATSHEET-FORMAT.md](CHEATSHEET-FORMAT.md). It holds plain-language explanations of the terms the user struggles with, whether glossary terms that need more room than the glossary allows or general concepts that don't belong in the glossary at all. It is personal, so keep it out of git with `.git/info/exclude`, not `.gitignore`.
+
 When you create `GLOSSARY.md`, make sure the repo's `AGENTS.md` tells agents to use its terms and avoid the words under `_Avoid_`; otherwise the glossary gets written and never read.
 
 ## During the session
@@ -21,4 +23,5 @@ When you create `GLOSSARY.md`, make sure the repo's `AGENTS.md` tells agents to 
 - **Discuss concrete scenarios.** Stress-test domain relationships with invented edge cases that force precise boundaries between concepts.
 - **Cross-reference with code.** When the user states how something works, check the code agrees, and surface contradictions: "Your code cancels entire Orders, but you said partial cancellation is possible. Which is right?"
 - **Update `GLOSSARY.md` inline.** Write each term the moment it is resolved; don't batch. The glossary holds no implementation details: it is not a spec or a scratch pad.
+- **Explain in the cheatsheet, not the glossary.** When the user asks what a term means, or keeps misusing one, answer and write the explanation to `GLOSSARY-CHEATSHEET.md`. The glossary stays compact.
 - **Offer ADRs sparingly.** Only when the decision is hard to reverse, surprising without context, *and* the result of a real trade-off. If any of the three is missing, skip it.
