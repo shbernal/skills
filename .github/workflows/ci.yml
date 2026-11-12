@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.3.3
       # Frontmatter of every skills/<name>/SKILL.md: name == directory,
       # non-empty description, Agent Skills length limits.
       - run: uv run scripts/check-skills.py
