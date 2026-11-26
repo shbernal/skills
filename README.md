@@ -55,7 +55,7 @@ Some skills build on others' work:
 | [domain-model](skills/domain-model/SKILL.md) | Matt Pocock's [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), © Matt Pocock, MIT |
 | [grill-me](skills/grill-me/SKILL.md) | Matt Pocock's [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), © Matt Pocock, MIT |
 | [slopit](skills/slopit/SKILL.md) | Run a free blog on [SlopIt](https://slopit.io) through its REST API |
-| [yutu](skills/yutu/SKILL.md) | eat-pray-ai's [youtube](https://github.com/eat-pray-ai/yutu/tree/main/skills/youtube) skill, © eat-pray-ai & OpenWaygate, Apache-2.0 |
+| [yutu](skills/yutu/SKILL.md) | eat-pray-ai's [youtube-automation](https://github.com/eat-pray-ai/yutu/tree/main/skills/youtube-automation) skill, © eat-pray-ai & OpenWaygate, Apache-2.0 |
 
 [license]: LICENSE
 [license-badge]: https://img.shields.io/github/license/shbernal/skills?style=for-the-badge&color=7aa2f7
